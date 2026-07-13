@@ -1,0 +1,966 @@
+/*  Reset & Base  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #f5f9fc 0%, #eef5f9 100%);
+    color: #333;
+    line-height: 1.6;/*Ye line ke beech ka gap hota hai.*/
+}
+html {
+    scroll-behavior: smooth;/*Agar page ke kisi section par jump karoge (jaise #about ya #contact), 
+                              to page ekdum se jump nahi karega. Dheere-dheere scroll hoga.*/
+}
+
+/*  Header  */
+.header-top{
+    width:100%;/* Parent jitna wide hai, utna hi ye bhi hoga.*/
+    display:flex;/*children ko ek line me arrange krta h*/
+    justify-content:space-between;/*Beech me jitni bhi empty space hogi wo equally distribute hogi.*/
+    align-items:center;
+    padding:8px 18px 6px;
+    margin:0;
+    min-height:96px;
+}
+.header-inner{
+    display:flex;/*logo and header-inner side by side*/
+    align-items:center;
+    gap:18px;/*btw logo & heder-inner*/
+    padding:0;/*inside space*/
+    margin:0;/*outside space*/
+}
+.emergency-banner{/*ribbon img set up*/
+    position:absolute;/*position ab mannually decide kreke hm khud hi*/
+    right:0;
+    top:0;
+    margin:0;
+    padding:0;
+}
+.emergency-img{
+    display:block;/*Image default me "display:inline;" jaisa behave karti hai. 
+    Inline image ke niche thoda gap aa jata hai.Isliye "display:block" se clear ati h img*/
+    margin:0;
+    padding:0;
+    max-width:580px;
+}
+header{
+    background:#fff;
+    box-shadow:0 4px 18px rgba(0,33,71,.10);/*box-shadow: Horizontal Vertical Blur Color*/
+    position: sticky;/*header scroll karne par bhi dikhta rhega*/
+    top: 0;
+    z-index: 1000;/* scroll krne pr img header k upr nii aygi header sbke upr rhega*/
+}
+header .header-top{/*Header ke andar jo .header-top hai, sirf usi par ye style lgega.*/
+    position: relative;/*position: absolute wala element apne nearest positioned parent ko reference maanta hai.
+Yahan: header
+         └── header-top (relative)
+                  ├── header-inner
+                  └── emergency-banner (absolute)
+To right: 0; top: 0; poore page ke hisaab se nahi, balki .header-top ke hisaab se calculate hoga.*/
+}
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width:112px;
+    height:auto;/*Height browser khud calculate karega taaki image ka proportion (aspect ratio) na bigde.*/
+}
+.header-text {
+    display: flex;
+    flex-direction: column;
+    line-height:1.15;
+}
+.hospital-name {
+    color:#9b0000;
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+.hospital-title{
+    color:#a80000;
+    font-size:32px;
+    font-weight:300;
+    letter-spacing:8px;
+}
+.portal-subtitle{
+    color:#002147;
+    font-size:15px;
+    margin-top:7px;
+    font-weight:600;
+    letter-spacing:.4px;
+}
+
+/* MAIN NAV */
+.main-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:4px;/*Har nav item ke beech 10px ka gap*/
+    background:#fff;
+    border-top:1px solid #edf1f4;
+    border-bottom:5px solid #002147;/*Upar aur neeche halki gray line, jo navigation ko header se visually alag karti hai.*/
+    position:relative;
+    z-index:999;
+    min-height:52px;
+}
+
+/* LINKS */
+.main-nav > a,
+.dropbtn{ /* here ">" this for Direct Child Selector --> used for "About Us" */
+    display:block;
+    padding:15px 16px;
+    color:#002147;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none; /*Underline removed*/
+    position:relative;
+    transition:.3s; /*smooth animation*/
+}
+
+.main-nav a::after{
+    content:""; /*Pseudo element tabhi banta hai jab content likho. Chahe empty ho. Matlab - Ek invisible element create karo.*/
+    position:absolute; /*isse pseudo element normal flow se bahar aa gaya, Ab isko jahan chahe rakh sakte h */
+    bottom:-1px; /*anchor k niche line k liye*/
+    left:50%; /*line ko center se strat krne k lye*/
+    transform:translateX(-50%); /*Ye line ko uski khud ki width ka 50% left shift kar deta hai*/
+    width:0; /*Initially line ki width zero.*/
+    height:3px; /*Underline ki thickness.*/
+    background:#b00000;
+    transition:.3s;
+}
+.main-nav a:hover::after{
+    width:75%; /*click krne k baad line ki width content k acc puri ho jyegi*/
+}
+.main-nav a,
+.dropbtn {
+    letter-spacing: 0.2px;
+}
+.main-nav > a:hover,
+.dropbtn:hover {
+    color: #b00000;/*click krne pr text ka color blue se red ho jyega*/
+}
+.main-nav a.active {
+    color: #990000;
+    font-weight: 600;
+}
+.main-nav > a,
+.dropbtn {
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    position: relative;
+}
+
+mark {
+    background: #ffe6e6;
+    color: #990000;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+  /* DROPDOWN */
+.dropdown{
+    position:relative;
+}
+.dropbtn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+.dropbtn i{
+    font-size:15px;
+}
+/* PANEL */
+.dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%) translateY(16px);
+    background:#fff;
+    width:max-content;
+    min-width:650px;
+    padding:0;
+    border-top:none;
+    border-radius:0 0 3px 3px;
+    box-shadow:0 10px 18px rgba(0,0,0,.32);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    overflow:hidden;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+
+    z-index:99999;
+}
+.dropdown-menu::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#b00000;
+}
+/* SHOW */
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+}
+/* GRID */
+.mega-grid{
+    display:grid;
+    grid-template-columns:repeat(2,260px);
+    gap:0;
+    padding:16px 10px 10px;
+}
+/* COLUMN */
+.mega-column{
+    display:flex;
+    flex-direction:column;
+    padding:0 18px 12px;
+}
+.mega-column + .mega-column {
+    border-left:1px solid #e5e5e5;
+}
+.mega-column h4{
+    color:#9b0000;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+    padding:8px 0 9px;
+    border-bottom:1px solid #d8d8d8;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+/* LINKS */
+.mega-column a{
+    display:block;
+    padding:10px 6px 10px 18px;
+    color:#111;
+    font-size:14px;
+    line-height:1.35;
+    text-decoration:none;
+    transition:.25s;
+    border-bottom:1px solid #eeeeee;
+    position:relative;
+}
+.mega-column a::before {
+    content:"\f105";
+    font-family:FontAwesome;
+    position:absolute;
+    left:3px;
+    top:10px;
+    color:#002147;
+    transition:.25s;
+}
+.mega-column a::after {
+    display:none;
+}
+.mega-column a:hover{
+    color:#9b0000;
+    padding-left:24px;
+    background:#fff6f6;
+}
+.mega-column a:hover::before {
+    color:#9b0000;
+    left:9px;
+}
+/* ARROW */
+.dropbtn i{
+    transition:.3s;
+}
+.dropdown:hover .dropbtn i{
+    transform:rotate(180deg);
+}
+
+/* Welcome Section  */
+.welcome-section {
+    text-align: center;
+    padding: 42px 20px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,0));
+    box-shadow: none;
+    max-width: 920px;
+    margin: 0 auto;
+}
+.welcome-section h3 {
+    font-size: 27px;
+    color: #9b0000;
+    margin-bottom: 8px;
+    font-weight:700;
+    letter-spacing:.2px;
+}
+.welcome-desc {
+    font-size: 15px;
+    color: #4d5b68;
+    max-width:620px;
+    margin:0 auto;
+}
+
+
+/* vision mission and values */
+.vmv-section {
+    padding: 50px 16px;
+    background: #f6f8fb;
+}
+
+.vmv-container {
+    max-width: 1080px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+/* MAIN CARDS */
+.vmv-left,
+.vmv-right {
+    background: #ffffff;
+    border: 1px solid #e6edf3;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 3px 10px rgba(0, 33, 71, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+/* subtle hover */
+.vmv-left:hover,
+.vmv-right:hover {
+    box-shadow: 0 5px 14px rgba(0, 33, 71, 0.08);
+}
+
+/* ACCENTS */
+.vmv-left {
+    border-left: 3px solid #990000;
+}
+
+.vmv-right {
+    border-top: 3px solid #002147;
+}
+
+/* TAG */
+.vmv-tag {
+    font-size: 10.5px;
+    letter-spacing: 1.4px;
+    color: #990000;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.vmv-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* HEADINGS */
+.vmv-block h2,
+.vmv-values-header h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 4px;
+}
+
+/* TEXT  */
+.vmv-block p,
+.vmv-values-header p {
+    font-size: 13.8px;
+    line-height: 1.55;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* DIVIDER  */
+.vmv-divider {
+    height: 1px;
+    margin: 14px 0;
+    background: rgba(0, 33, 71, 0.08);
+}
+
+/* VALUES SECTION */
+.vmv-values {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 8px;
+}
+
+/* VALUE ITEM */
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 11px;
+    border-radius: 6px;
+    background: #fafbfc;
+    border: 1px solid #edf2f7;
+    border-left: 3px solid #990000;
+    font-size: 13px;
+    color: #3d4a57;
+}
+
+/* hover (minimal) */
+.value-item:hover {
+    background: #ffffff;
+}
+
+/* BADGE */
+.value-item span {
+    width: 20px;
+    height: 20px;
+    font-size: 10.5px;
+    font-weight: 600;
+    background: #002147;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  Search Box */
+.search-box {
+    text-align: center;
+    padding: 10px 20px 20px;
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+}
+#search-box{
+    height:54px;
+    width:100%;
+    border-radius:32px;
+    padding:0 54px 0 26px;
+    border:1px solid #dfe7ee;
+    background:#fff;
+    color:#002147;
+    font-size:15px;
+    box-shadow:0 8px 24px rgba(0,33,71,.10);
+    transition:all 0.3s ease;
+}
+#search-box::placeholder {
+    color:#8a96a3;
+}
+#search-box:focus{
+    outline:none;
+    border-color:#9b0000;
+    box-shadow:0 10px 28px rgba(153,0,0,0.16);
+}
+.search-icon {
+    position: absolute;
+    right: 50px;
+    top: 43%;
+    transform: translateY(-50%);
+    color: #9b0000;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+/* Category Filters*/
+.category-filters {
+    text-align: center;
+    padding: 12px 20px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.filter-btn {
+    background: #fff;
+    color: #002147;
+    border: 1px solid #d7e0e8;
+    padding: 10px 19px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight:600;
+    transition: all 0.25s ease;
+    box-shadow:0 4px 12px rgba(0,33,71,.06);
+}
+.filter-btn:hover,
+.filter-btn.active-filter {
+    background: #9b0000;
+    border-color:#9b0000;
+    color: #fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(153,0,0,.22);
+}
+
+/* No Results  */
+#no-results {
+    text-align: center;
+    font-size: 16px;
+    color: #990000;
+    padding: 20px;
+    display: none;
+}
+
+/*  Policy Count */
+.policy-count {
+    text-align: center;
+    padding: 8px 10px 14px;
+}
+.policy-count p {
+    font-size: 14px;
+    color: #52616f;
+    font-weight: 600;
+}
+
+/* Policy Cards  */
+.policy-container {
+    max-width: 930px;
+    margin: 0 auto;
+    padding: 0 20px 44px;
+}
+.policy-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(0,33,71,.08);
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-left: 5px solid #9b0000;
+    border-top:1px solid #edf1f4;
+    border-right:1px solid #edf1f4;
+    border-bottom:1px solid #edf1f4;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-margin-top: 140px;
+}
+.policy-card.active .policy-content {
+    max-height: 3000px;
+    padding: 18px 24px 24px;
+    border-top:1px solid #eef2f5;
+}
+.policy-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0,33,71,.13);
+}
+.policy-title {
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    color: #1f2d3a;
+    padding: 19px 22px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    transition: background 0.2s, color 0.2s;
+    line-height:1.4;
+}
+.policy-title i {
+    color: #9b0000;
+    font-size: 18px;
+    width:22px;
+    min-width:22px;
+    text-align:center;
+}
+.policy-title:hover {
+    background: #fff7f7;
+    color:#9b0000;
+}
+.policy-card.active .policy-title {
+    color:#9b0000;
+    background:#fff8f8;
+}
+.policy-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+    padding: 0 24px;
+    background:#fff;
+}
+.policy-content strong {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #9b0000;
+    font-weight: 700;
+}
+.policy-content ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+.policy-content li {
+    margin-bottom: 5px;
+}
+.policy-content p {
+    margin-bottom: 14px;
+    line-height: 1.75;
+    color: #404b55;
+}
+
+.policy-content strong {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #9b0000;
+    font-weight: 700;
+}
+
+.policy-content ul,
+.policy-content ol {
+    margin-bottom: 15px;
+    padding-left: 22px;
+}
+
+.policy-content ul li,
+.policy-content ol li {
+    margin-bottom: 7px;
+    line-height: 1.65;
+    color: #35414c;
+}
+.policy-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* ICC Highlight Card  */
+.icc-highlight {
+    border-left: 5px solid #002147;
+    background: linear-gradient(135deg, #ffffff, #f5f9ff);
+}
+.icc-highlight .policy-title {
+    background: linear-gradient(180deg, #f9fcff, #ffffff);
+}
+.icc-highlight .policy-title i {
+    color:#002147;
+}
+.icc-highlight.active .policy-title {
+    color:#002147;
+    background:#f3f8ff;
+}
+
+
+/* ICC Image Display */
+.icc-image-box {
+    margin-top:22px;
+    padding:18px;
+    background:#fbfdff;
+    border:1px solid #dfe8f1;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,33,71,.08);
+}
+.icc-image-heading {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#002147;
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid #e3eaf1;
+}
+.icc-image-heading i {
+    color:#9b0000;
+}
+.icc-flow-img {
+    width:100%;
+    max-width:760px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
+    background:#fff;
+    padding:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+.icc-image-note {
+    margin:12px 0 0;
+    color:#5f6d78;
+    font-size:13px;
+    text-align:center;
+}
+
+
+/* Feedback Section */
+.feedback-container {
+    max-width: 930px;
+    margin: 0 auto 44px;
+    padding: 32px;
+    background: linear-gradient(180deg,#ffffff,#fbfdff);
+    border: 1px solid #e2e9ef;
+    border-top: 4px solid #9b0000;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0,33,71,.10);
+}
+.feedback-container h3 {
+    color: #9b0000;
+    margin-bottom: 14px;
+    font-size: 21px;
+}
+.feedback-container h3 i {
+    margin-right: 8px;
+}
+.feedback-description {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+#feedbackInput {
+    width: 100%;
+    height: 110px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #d9e2ea;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    color:#002147;
+    background:#fff;
+    transition:.25s;
+}
+#feedbackInput:focus {
+    outline: none;
+    border-color: #9b0000;
+    box-shadow:0 0 0 3px rgba(153,0,0,.08);
+}
+#feedbackButton{
+    margin-top:14px;
+    color:#fff;
+    background:linear-gradient(135deg,#b51217,#860b0f);
+    padding:13px 30px;
+    border:none;
+    border-radius:40px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 20px rgba(153,0,0,.25);
+}
+#feedbackButton:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(153,0,0,.35);
+}
+#feedbackMessage {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Footer */
+footer {
+    background: #002147;
+    color: #fff;
+    padding: 38px 30px 0;
+    border-top:5px solid #9b0000;
+}
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+.footer-section strong{
+    display:block;
+    margin-bottom:8px;
+    font-size:18px;
+    letter-spacing:.5px;
+}
+.footer-section p{
+    font-size:13px;
+    line-height:1.8;
+    margin-top: 0;
+    color:#dce7f1;
+}
+.footer-section ul {
+    list-style: none;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul a{
+    color:#d9d9d9;
+    transition:.3s;
+    text-decoration: none;
+}
+.footer-section ul a:hover{
+    padding-left:6px;
+}
+.footer-bottom {
+    text-align: center;
+    padding: 18px 20px;
+    margin-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    font-size: 12px;
+    color: #b9c7d5;
+}
+.footer-bottom p {
+    margin-bottom:5px;
+}
+.footer-note {
+    font-size: 12px;
+    color: #e5edf4;
+    margin-top: 6px;
+}
+
+/*  Responsiveness */
+@media (max-width: 992px) {
+    .emergency-banner {
+        position:static;
+        width:100%;
+    }
+    .emergency-img {
+        max-width:100%;
+        margin-left:auto;
+    }
+    .vmv-section {
+        padding: 30px 14px;
+    }
+    .vmv-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .vmv-left,
+    .vmv-right {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .emergency-banner {
+        text-align: center;
+        font-size: 12px;
+    }
+    .header-inner {
+        padding: 12px 15px;
+        justify-content:center;
+    }
+    .logo {
+        width: 64px;
+    }
+    .hospital-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+        .hospital-name {
+        font-size: 12px;
+    }
+    .portal-subtitle {
+        font-size:13px;
+    }
+    .header-top{
+        flex-direction:column;
+        gap:6px;
+        padding:0;
+        min-height:auto;
+    }
+    .emergency-img{
+        width:100%;
+        max-width:420px;
+    }
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content:center;
+        border-bottom:4px solid #002147;
+    }
+    .main-nav > a,
+    .dropbtn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+    .dropdown-menu {
+        width: 94vw;
+        min-width:0;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%) translateY(12px);
+        box-shadow:0 10px 22px rgba(0,0,0,.22);
+    }
+    .dropdown:hover .dropdown-menu{
+        transform:translateX(-50%) translateY(0);
+    }
+    .mega-grid {
+        grid-template-columns:1fr;
+        padding:14px 10px 10px;
+    }
+    .mega-column + .mega-column {
+        border-left:none;
+    }
+    .mega-column {
+        padding:0 12px 10px;
+    }
+    .welcome-section {
+        padding:30px 20px 12px;
+    }
+    .welcome-section h3 {
+        font-size: 21px;
+    }
+    .vmv-section {
+        margin-top:12px;
+    }
+    .vmv-card {
+        padding:22px 20px;
+    }
+    .filter-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    .policy-title {
+        font-size:14px;
+        padding:16px;
+    }
+    .policy-card.active .policy-content {
+        padding:16px;
+    }
+    .feedback-container {
+        margin-left:20px;
+        margin-right:20px;
+        padding:24px 20px;
+    }
+    .footer-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .emergency-numbers {
+        display: block;
+        margin-top: 5px;
+    }
+    .hospital-title {
+        font-size: 18px;
+    }
+    .hospital-name {
+        letter-spacing:.7px;
+    }
+    .category-filters {
+        gap: 8px;
+    }
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+    .search-icon {
+        right:38px;
+    }
+    .icc-image-box {
+        padding:12px;
+    }
+}

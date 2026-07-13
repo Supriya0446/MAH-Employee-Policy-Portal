@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAH Employee Policy Portal</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body id="top">
+
+<!-- HEADER -->
+<header>
+<div class="header-top">
+<div class="header-inner">
+<a href="https://www.mahdelhi.org/" target="_blank" class="logo-link">
+<img src="../../../../image/logo.png" class="logo" alt="Logo">
+</a>
+<div class="header-text">
+<span class="hospital-name">MAHARAJA AGRASEN</span>
+<span class="hospital-title">HOSPITAL</span>
+<span class="portal-subtitle">Employee Policy Portal</span>
+</div>
+</div>
+<div class="emergency-banner">
+<img src="../../../../image/hos_ribbon.png" class="emergency-img" alt="Emergency">
+</div>
+</div>
+<!-- NAVIGATION  -->
+<nav class="main-nav">
+<a href="#top">Home</a>
+    <div class="dropdown">
+    <a href="#" class="dropbtn">Employee Policies <i class="fa fa-angle-down"></i></a>
+    <div class="dropdown-menu">
+        <div class="mega-grid">
+            <div class="mega-column">
+                <h4>Employee Policies</h4>
+                <a href="#employee-rights">Employee Rights</a>
+                <a href="#professional-responsibilities">Responsibilities</a>
+                <a href="#discipline">Discipline & Misconduct</a>
+                <a href="#grievance">Grievance Redressal</a>
+            </div>
+            <div class="mega-column">
+                <h4>Service Lifecycle</h4>
+                <a href="#resignation">Resignation & Exit</a>
+                <a href="#retirement">Retirement</a>
+                <a href="#termination">Termination</a>
+                <a href="#personal-records">Personal Records</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dropdown">
+    <a href="#" class="dropbtn">Operations <i class="fa fa-angle-down"></i></a>
+    <div class="dropdown-menu">
+        <div class="mega-grid">
+            <div class="mega-column">
+                <h4>HR Operations</h4>
+                <a href="#grievance">Grievance Redressal</a>
+                <a href="#resignation">Exit Process</a>
+                <a href="#personal-records">Employee Records</a>
+            </div>
+            </div>
+    </div>
+</div>
+<div class="dropdown">
+    <a href="#" class="dropbtn">Safety & Compliance <i class="fa fa-angle-down"></i></a>
+    <div class="dropdown-menu">
+        <div class="mega-grid">
+            <div class="mega-column">
+                <h4>Safety</h4>
+                <a href="#workplace-safety">Health & Safety</a>
+            </div>
+            <div class="mega-column">
+                <h4>Compliance</h4>
+                <a href="#information-management">Information Security</a>
+                <a href="#business-continuity">Business Continuity</a>               
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dropdown">
+    <a href="#" class="dropbtn">ICC <i class="fa fa-angle-down"></i></a>
+    <div class="dropdown-menu">
+        <div class="mega-grid">
+            <div class="mega-column">
+                <h4>Internal Complaints</h4>
+                <a href="#icc-policy">Prevention of Sexual Harassment</a>
+                <a href="#complaint-process">Complaint Process</a>
+                <a href="#support">Support & Assistance</a>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+</header>
+
+<!-- WELCOME -->
+<div class="welcome-section">
+<h3 id="greeting"></h3>
+<p class="welcome-desc">Access structured hospital policies and compliance guidelines.</p>
+</div>
+
+<!-- Vision • Mission • Values -->
+<section class="vmv-section">
+    <div class="vmv-container">
+        <div class="vmv-left">
+            <div class="vmv-block">
+                <div class="vmv-tag">OUR VISION</div>
+                <h2>Vision</h2>
+                <p>To provide Quality Health Care to all strata of society.</p>
+            </div>
+            <div class="vmv-divider"></div>
+            <div class="vmv-block">
+                <div class="vmv-tag">OUR MISSION</div>
+                <h2>Mission</h2>
+                <p>To establish group of Institutions for providing medical care and education at affordable cost.</p>
+            </div>
+        </div>
+        <div class="vmv-right">
+            <div class="vmv-values-header">
+                <h2>Core Values</h2>
+                <p>The principles that define how we work, serve and care.</p>
+            </div>
+            <div class="vmv-values">
+                <div class="value-item"><span>A</span> Affordable quality health care services.</div>
+                <div class="value-item"><span>G</span> Gratitude for serving the community.</div>
+                <div class="value-item"><span>R</span> Respect for humanity.</div>
+                <div class="value-item"><span>A</span> Accountability in each aspect.</div>
+                <div class="value-item"><span>S</span> Safety for all.</div>
+                <div class="value-item"><span>E</span> Excellence in what we do.</div>
+                <div class="value-item"><span>N</span> Never say "No" to serve mankind.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="search-box" placeholder="Search policies...">
+<i class="fa fa-search search-icon"></i>
+</div>
+
+<!-- FILTERS -->
+<div class="category-filters" id="categories">
+  <button class="filter-btn active-filter" data-category="all">All Policies</button>
+  <button class="filter-btn" data-category="employee">Employee</button>
+  <button class="filter-btn" data-category="hr">HR Operations</button>
+  <button class="filter-btn" data-category="safety">Safety</button>
+  <button class="filter-btn" data-category="information">Information</button>
+  <button class="filter-btn" data-category="records">Records</button>
+  <button class="filter-btn" data-category="governance">Governance</button>
+  <button class="filter-btn" data-category="icc">ICC</button>
+</div>
+
+<!-- POLICY COUNT -->
+<div class="policy-count">
+<p id="policy-count">Policies: 6</p>
+</div>
+
+<!-- POLICIES -->
+<div class="policy-container">
+    
+<!-- Employee Rights -->
+<div class="policy-card" id="employee-rights" data-category="employee">
+  <button class="policy-title"><i class="fa fa-user"></i> Employee Rights & Workplace Entitlements</button>
+  <div class="policy-content">
+     <p>Maharaja Agrasen Hospital is committed to ensuring that employees are treated fairly, provided with appropriate support, and made aware of their rights throughout their employment.</p>
+     <strong>Employees are entitled to:</strong>
+   <ul>
+    <li>Fair compensation appropriate to the role performed.</li>
+    <li>Clear employment terms and conditions before joining the organization.</li>
+    <li>Protection against unfair dismissal, transfer, or demotion in accordance with internal policy.</li>
+    <li>Leave and statutory benefits as applicable under legal requirements.</li>
+    <li>A safe workplace and healthy working environment.</li>
+    <li>Equal treatment and non-discrimination, irrespective of race, color, sex, or religion.</li>
+    <li>Training, updates, and role-related guidance necessary for effective performance.</li>
+    <li>The right to raise grievances and be informed of disciplinary actions.</li>
+    <li>Privacy in personal matters and a clear resignation and exit process.</li>
+   </ul>
+  </div>
+</div>
+
+<!-- Responsibilities -->
+<div class="policy-card"  id="professional-responsibilities"  data-category="employee">
+   <button class="policy-title"><i class="fa fa-check-circle"></i> Professional Responsibilities & Workplace Expectations</button>
+   <div class="policy-content">
+       <p>Every employee is expected to contribute to a safe, respectful, ethical, and professionally disciplined workplace.</p>
+       <strong>Key Expectations:</strong>
+       <ul>
+         <li>Maintain punctuality and regular attendance.</li>
+         <li>Wear the prescribed uniform and identity card while on duty.</li>
+         <li>Be familiar with emergency codes, hospital policies, and work instructions.</li>
+         <li>Inform the Supervisor or Head of Department in advance of absence.</li>
+         <li>Notify Human Resources of changes in personal records.</li>
+         <li>Report to work well-groomed, using required safety equipment.</li>
+         <li>Treat colleagues, patients, and visitors with respect.</li>
+         <li>Protect the confidentiality of hospital and patient information.</li>
+         <li>Exercise due care in the use of hospital property.</li>
+       </ul>
+    </div>
+</div>
+
+<!-- Discipline -->
+<div class="policy-card" id="discipline" data-category="employee">
+     <button class="policy-title"><i class="fa fa-balance-scale"></i>Discipline, Misconduct & Standards of Professional Conduct</button>
+     <div class="policy-content">
+     <p>Any act or omission harmful to patient care delivery, workplace discipline, or the reputation of the Hospital may be treated as misconduct.</p>
+     <strong>Definition of Misconduct:</strong>
+     <p>Includes any act detrimental to healthcare services, discipline, or the prestige of Maharaja Agrasen Hospital. Specific acts are detailed in the Service Rule Book.</p>
+     <strong>Enquiry Process:</strong>
+     <ul>
+      <li>Management may appoint an Enquiry Officer for serious cases.</li>
+      <li>The employee will be informed of the date, time, and place of the enquiry.</li>
+      <li>The employee will be given a full opportunity to respond to the charges.</li>
+      <li>Defense may be provided by a co-employee from the same department (under specific conditions).</li>
+      <li>No outsiders are authorized to assist or represent the employee.</li>
+     </ul>
+     </div>
+</div>
+
+<!-- Grievance -->
+<div class="policy-card" id="grievance"  data-category="hr">
+    <button class="policy-title"><i class="fa fa-comments"></i> Employee Grievance Redressal Framework</button>
+    <div class="policy-content">
+    <p>A formal mechanism to ensure concerns are heard, reviewed fairly, and resolved in a timely and structured manner.</p>
+    <strong>Grievance Escalation Process:</strong>
+    <ul>
+    <li><strong>Step 1:</strong> Submit the grievance to the Head of Department (HOD).</li>
+    <li><strong>Step 2:</strong> If unsatisfied, escalate the matter to the Manager - HR.</li>
+    <li><strong>Step 3:</strong> If unresolved, approach the Senior Administrative Officer / Medical Superintendent.</li>
+    <li><strong>Step 4:</strong> Final appeal to the Medical Director, who may constitute a Grievance Redressal Committee.</li>
+    </ul>
+    <p><strong>Note:</strong> All employees are encouraged to use these channels to address concerns constructively and without delay.</p>
+    </div>
+</div>
+
+<!-- Separation -->
+<div class="policy-card"  id="resignation"  data-category="hr">
+    <button class="policy-title"><i class="fa fa-sign-out"></i> Resignation, Notice Period & Exit Process</button>
+    <div class="policy-content">
+    <p>Employees who wish to resign must follow the formal exit process established by the Hospital.</p>
+    <strong>Key Requirements:</strong>
+    <ul>
+    <li><strong>Notice Period:</strong> One, two, or three months as applicable to the employment terms.</li>
+    <li><strong>Exit Clearance:</strong> Obtain a No Dues Certificate from the Human Resources Department.</li>
+    <li><strong>Property Return:</strong> Return identity cards and all organizational property before final separation.</li>
+    <li><strong>Exit Interview:</strong> Conducted by the HR Head to gather feedback for organizational improvement.</li>
+    </ul>
+    <strong>Other Separations:</strong>
+    <p>Retirement (Superannuation) occurs at age 58 or if declared medically unfit. Involuntary separation is governed by hospital service rules regarding misconduct and disciplinary action.</p>
+    </div>
+</div>
+
+<!-- Safety -->
+<div class="policy-card" id="workplace-safety" data-category="safety">
+   <button class="policy-title"><i class="fa fa-shield"></i> Workplace Health, Safety & Emergency Preparedness</button>
+   <div class="policy-content">
+   <p>The Hospital is committed to maintaining a healthy workforce and a safe environment through preventive and operational safety measures.</p>
+   <strong>Safety Protocols:</strong>
+   <ul>
+    <li><strong>Health Checks:</strong> Pre-employment, periodic, and annual assessments.</li>
+    <li><strong>Operational Safety:</strong> Fire safety, infection control, and safe handling of dangerous equipment/biomedical waste.</li>
+    <li><strong>Training:</strong> Mandatory fire safety training and periodic fire drills.</li>
+    <li><strong>Medical Attention:</strong> Immediate care provided for workplace accidents or injuries.</li>
+   </ul>
+    <p><strong>Strict Requirement:</strong> The entire hospital premises is a designated no-smoking zone. Employees must comply with all health and safety instructions.</p>
+   </div>
+</div> 
+
+<!-- ICC SECTION -->
+<div class="policy-card icc-highlight" id="icc-policy" data-category="icc">
+   <button class="policy-title"><i class="fa fa-shield"></i> Prevention of Sexual Harassment at the Workplace</button>
+   <div class="policy-content">
+   <p>Maharaja Agrasen Hospital maintains a workplace free from sexual harassment, intimidation, and discrimination.</p>
+   <strong>Complaint Mechanism:</strong>
+  <ul>
+   <li>Written complaints should be submitted to the Sexual Harassment Committee (ICC).</li>
+   <li>The committee ensures the matter is reviewed sensitively and appropriately.</li>
+   <li>Complainants and witnesses are protected against victimization or discrimination.</li>
+   <li>Options such as transfer of the perpetrator or complainant may be examined.</li>
+  </ul>
+   <p><strong>Records:</strong> All grievances are officially recorded in a register maintained by the HR Department.</p>
+   <div class="icc-image-box">
+    <div class="icc-image-heading">
+        <i class="fa fa-sitemap"></i>
+        <span>ICC Complaint Flow Reference</span>
+    </div>
+    <img src="../../../../image/icc-flow.png" class="icc-flow-img" alt="ICC Complaint Flow">
+    <p class="icc-image-note">For internal employee reference only. Complaints must be submitted in written format as per hospital policy.</p>
+    </div>
+    </div>
+</div>
+
+<div class="policy-card" id="complaint-process" data-category="icc">
+    <button class="policy-title"><i class="fa fa-file-text-o"></i> ICC Complaint Process</button>
+    <div class="policy-content">
+        <p>Employees may submit a written complaint to the Internal Complaints Committee (ICC) regarding incidents of workplace sexual harassment.</p>
+        <strong>Process:</strong>
+        <ul>
+            <li>Submit a written complaint to the Sexual Harassment Committee.</li>
+            <li>The complaint will be reviewed confidentially.</li>
+            <li>The Committee will examine the matter fairly and sensitively.</li>
+            <li>Recommendations will be made in accordance with hospital policy.</li>
+            <li>All complaints are recorded by the HR Department.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="support" data-category="icc">
+    <button class="policy-title"><i class="fa fa-life-ring"></i> Support & Assistance </button>
+    <div class="policy-content">
+        <p>The Internal Complaints Committee provides appropriate support to employees raising complaints of workplace sexual harassment.</p>
+        <strong>Support Measures:</strong>
+        <ul>
+            <li>Protection against victimization or discrimination.</li>
+            <li>Confidential handling of complaints.</li>
+            <li>Sensitive review of all reported incidents.</li>
+            <li>Consideration of transfer of the complainant where appropriate.</li>
+            <li>Consideration of transfer of the alleged perpetrator where appropriate.</li>
+            <li>Maintenance of grievance records by the HR Department.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="retirement" data-category="employee">
+    <button class="policy-title"><i class="fa fa-hourglass-end"></i> Retirement & Medical Unfitness </button>
+    <div class="policy-content">
+        <p>Every employee shall retire from service in accordance with applicable service conditions of the Hospital.</p>
+        <strong>Retirement Conditions:</strong>
+        <ul>
+            <li>On attaining the age of 58 years.</li>
+            <li>When declared medically unfit for duty by authorized medical authority.</li>
+        </ul>
+        <p>Further details are governed by the Hospital Service Rule Book.</p>
+    </div>
+</div>
+<div class="policy-card" id="termination" data-category="employee">
+    <button class="policy-title">
+        <i class="fa fa-times-circle"></i>
+        Termination of Service & Involuntary Separation
+    </button>
+    <div class="policy-content">
+        <p>Termination of employment shall be governed by the Hospital Service Rules.</p>
+        <strong>Applicable Situations:</strong>
+        <ul>
+            <li>Misconduct or disciplinary action</li>
+            <li>Violation of hospital policies</li>
+            <li>Operational or administrative requirements</li>
+        </ul>
+        <p>All separations will follow due process as per applicable rules and regulations.</p>
+    </div>
+</div>
+
+<div class="policy-card" id="personal-records" data-category="records">
+    <button class="policy-title">
+        <i class="fa fa-folder-open"></i>
+        Employee Personal Records
+    </button>
+    <div class="policy-content">
+        <p>The Human Resources Department maintains official employee records securely.</p>
+        <strong>Employee Responsibilities:</strong>
+        <ul>
+            <li>Ensure accuracy of personal and employment information.</li>
+            <li>Notify HR promptly of any changes in details.</li>
+            <li>Maintain updated documentation as required.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="information-management" data-category="information">
+    <button class="policy-title">
+        <i class="fa fa-lock"></i>
+        Information Management & Confidentiality
+    </button>
+    <div class="policy-content">
+        <p>The Hospital ensures secure handling of all patient and organizational data.</p>
+        <strong>Key Principles:</strong>
+        <ul>
+            <li>Confidentiality and data security must be maintained at all times.</li>
+            <li>Access is restricted to authorized personnel only.</li>
+            <li>Data must not be shared without proper approval.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="business-continuity" data-category="information">
+    <button class="policy-title">
+        <i class="fa fa-server"></i>
+        Business Continuity (Hospital IT Systems)
+    </button>
+    <div class="policy-content">
+        <p>The Hospital ensures continuity of services during system downtime or failure.</p>
+        <strong>Key Measures:</strong>
+        <ul>
+            <li>Manual fallback procedures during system outage.</li>
+            <li>Data backup and recovery systems.</li>
+            <li>Staff training for emergency operations.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="data-storage" data-category="records">
+    <button class="policy-title">
+        <i class="fa fa-hdd-o"></i>
+        Storage, Retention & Retrieval of Data
+    </button>
+    <div class="policy-content">
+        <p>Hospital data is stored securely in both electronic and physical formats.</p>
+        <strong>Data Management Practices:</strong>
+        <ul>
+            <li>Secure storage with restricted access.</li>
+            <li>Regular backups and system monitoring.</li>
+            <li>Controlled retention and archival process.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="medical-records" data-category="records">
+    <button class="policy-title">
+        <i class="fa fa-file-text-o"></i>
+        Medical Records Confidentiality & Security
+    </button>
+    <div class="policy-content">
+        <p>The Hospital ensures complete confidentiality and integrity of medical records.</p>
+        <strong>Core Standards:</strong>
+        <ul>
+            <li>Secure storage and controlled access.</li>
+            <li>Disclosure only with proper authorization.</li>
+            <li>Compliance with legal and regulatory requirements.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="policy-card" id="governance" data-category="governance">
+    <button class="policy-title">
+        <i class="fa fa-gavel"></i>
+        Important Governance Notes
+    </button>
+    <div class="policy-content">
+        <p>All policies are governed by authorized hospital management.</p>
+        <strong>Key Points:</strong>
+        <ul>
+            <li>Policies are applicable hospital-wide.</li>
+            <li>Changes require approval from authorized authorities.</li>
+            <li>Departments are responsible for awareness and implementation.</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- FEEDBACK -->
+<div class="feedback-container">
+<h3><i class="fa fa-paper plane"></i> Feedback</h3>
+<textarea id="feedbackInput" placeholder="Enter feedback..."></textarea>
+<button id="feedbackButton">
+<i class="fa fa-paper-plane"></i> Submit
+</button>
+<p id="feedbackMessage"></p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-section">
+<strong>Maharaja Agrasen Hospital</strong>
+<p>West Punjabi Bagh, New Delhi - 110026</p>
+</div>
+<div class="footer-bottom">
+<p>Phone: 011-40777555 / 40777666 / 40777777 | Email: info@mahdelhi.org</p>
+<p class="footer-note">Designed & Developed by SUPRIYA</p>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
