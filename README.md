@@ -152,27 +152,29 @@ Provides information regarding:
 
 ---
 
-# Project Structure
-MAH-Staff-Policy-Portal/
+## 📁 Project Structure
 
+```text
+MAH-Staff-Policy-Portal/
 │
 ├── index.html
-│ └── Main application structure and policy content
+│   └── Main application structure and hospital policy content
 │
 ├── style.css
-│ └── Complete UI styling and responsive design
+│   └── Complete UI styling, layout, animations, and responsive design
 │
 ├── script.js
-│ └── Interactive functionality and dynamic features
+│   └── Interactive features including search, filters, accordion, and feedback system
 │
 ├── image/
-│ ├── logo.png
-│ ├── hos_ribbon.png
-│ └── icc-flow.png
+│   ├── logo.png
+│   ├── hos_ribbon.png
+│   └── icc-flow.png
+│       └── Project assets and visual resources
 │
 └── README.md
-
----
+    └── Project documentation
+```
 
 # Application Workflow
 
